@@ -1,27 +1,27 @@
-let user: string;
-user = "mohamed"
-console.log(user)
+let age: any;
 
-// array
+age = 10;
+console.log(age);
+age = "mohamed";
+console.log(age);
 
-let users: (string|number)[];
+let mixed: any[] = [];
+mixed.push(23);
+mixed.push("mohamed");
+mixed.push(false);
+console.log(mixed);
 
-users = ["mohamed", "ahmed", 20]
-
-
-let uuid: string|number;
-
-uuid = 20;
-uuid = "gfdfg"
-
-console.log(uuid)
-
-// object
-
-let mohamedOne: {
-    name: string,
-    age: number|string
+let user: {
+    name: any;
+    age: any;
 };
-
-mohamedOne = {name: "ahmed", age: "mohamed"}
-
+user = {
+    name: "dgdfg",
+    age: 23,
+};
+console.log(user);
+user = {
+    name: 25,
+    age: "mohamed",
+};
+console.log(user);
