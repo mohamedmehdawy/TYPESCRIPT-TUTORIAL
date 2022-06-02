@@ -1,24 +1,27 @@
-let names = ["mohamed", 'ahmed', "mostafa"];
+let user: string;
+user = "mohamed"
+console.log(user)
 
-names[0] = "2"
+// array
 
-let numbers = [2, "ahmed"]
+let users: (string|number)[];
 
-numbers = [21]
+users = ["mohamed", "ahmed", 20]
+
+
+let uuid: string|number;
+
+uuid = 20;
+uuid = "gfdfg"
+
+console.log(uuid)
 
 // object
 
-let mohamed = {
-    name: "mohamed",
-    title: "front end developer",
-    age: 20,
+let mohamedOne: {
+    name: string,
+    age: number|string
+};
 
-}
+mohamedOne = {name: "ahmed", age: "mohamed"}
 
-mohamed.age = 30
-
-mohamed = {
-    name: "omar",
-    title:"bro max",
-    age: 20,
-}

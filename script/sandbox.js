@@ -1,16 +1,13 @@
-var names = ["mohamed", 'ahmed', "mostafa"];
-names[0] = "2";
-var numbers = [2, "ahmed"];
-numbers = [21];
+var user;
+user = "mohamed";
+console.log(user);
+// array
+var users;
+users = ["mohamed", "ahmed", 20];
+var uuid;
+uuid = 20;
+uuid = "gfdfg";
+console.log(uuid);
 // object
-var mohamed = {
-    name: "mohamed",
-    title: "front end developer",
-    age: 20
-};
-mohamed.age = 30;
-mohamed = {
-    name: "omar",
-    title: "bro max",
-    age: 20
-};
+var mohamedOne;
+mohamedOne = { name: "ahmed", age: "mohamed" };
