@@ -1,13 +1,21 @@
+var age;
+age = 10;
+console.log(age);
+age = "mohamed";
+console.log(age);
+var mixed = [];
+mixed.push(23);
+mixed.push("mohamed");
+mixed.push(false);
+console.log(mixed);
 var user;
-user = "mohamed";
+user = {
+    name: "dgdfg",
+    age: 23
+};
 console.log(user);
-// array
-var users;
-users = ["mohamed", "ahmed", 20];
-var uuid;
-uuid = 20;
-uuid = "gfdfg";
-console.log(uuid);
-// object
-var mohamedOne;
-mohamedOne = { name: "ahmed", age: "mohamed" };
+user = {
+    name: 25,
+    age: "mohamed"
+};
+console.log(user);
