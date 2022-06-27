@@ -1,13 +1,10 @@
 // classes
 class Invoice {
-    client: string;
-    details: string;
-    amount: number;
-    constructor(c: string, d: string, a: number) {
-        this.client = c;
-        this.details = d;
-        this.amount = a;
-    }
+    constructor(
+        readonly client:string,
+        private details: string,
+        public amount: number,
+    ) {}
 
     format() {
         return `${this.client} and have ${this.amount}$, ${this.details}`;
@@ -15,8 +12,13 @@ class Invoice {
 }
 
 const invoceOne: Invoice = new Invoice("mohamed", "from egypt", 200);
-const invoceTwo: Invoice = new Invoice("elsayed", "from egypt", 500);
 
+const invoceTwo: Invoice = new Invoice("elsayed", "from egypt", 500);
+console.log(invoceOne.client)
 const invoces: Invoice[] = [];
-invoces.push(invoceOne);
-console.log(invoces);
+invoces.push(invoceOne); 
+invoces.push(invoceTwo); 
+
+invoces.forEach(ele => {
+    console.log(ele.format())
+})
