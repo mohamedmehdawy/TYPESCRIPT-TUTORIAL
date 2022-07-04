@@ -1,33 +1,21 @@
-// interface
-interface IsPerson {
-    name: string;
-    age: number;
-    speak(a: string): void;
-    spend(a: number): number;
-}
-
-const me: IsPerson = {
-    name: "mohamed",
-    age: 20,
-    speak(text: string): void {
-        console.log(text)
-    },
-    spend(amount: number): number {
-        console.log(`amount is ${amount}`);
-        return amount;
-    },
-}
-
+import { HasFormatter } from "./interfaces/HasFormatter.js";
 import { Invoice } from "./classes/Invoice.js";
+import { Payment } from "./classes/payment.js";
 
-const invoceOne: Invoice = new Invoice("mohamed", "from egypt", 200);
+const form = document.querySelector(".new-item-form") as HTMLFormElement;
 
-const invoceTwo: Invoice = new Invoice("elsayed", "from egypt", 500);
-console.log(invoceOne.client);
-const invoces: Invoice[] = [];
-invoces.push(invoceOne);
-invoces.push(invoceTwo);
+// inputs
+const type = document.querySelector("#type") as HTMLSelectElement;
+const tofrom = document.querySelector("#tofrom") as HTMLInputElement;
+const details = document.querySelector("#details") as HTMLInputElement;
+const amount = document.querySelector("#amount") as HTMLInputElement;
 
-invoces.forEach((ele) => {
-    console.log(ele.format());
+form.addEventListener("submit", (e: Event) => {
+    e.preventDefault();
+
+    let doc: HasFormatter;
+    if (type.value == "invoice")
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    else doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    console.log(doc);
 });
