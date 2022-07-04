@@ -1,21 +1,17 @@
-const me = {
-    name: "mohamed",
-    age: 20,
-    speak(text) {
-        console.log(text);
-    },
-    spend(amount) {
-        console.log(`amount is ${amount}`);
-        return amount;
-    },
-};
 import { Invoice } from "./classes/Invoice.js";
-const invoceOne = new Invoice("mohamed", "from egypt", 200);
-const invoceTwo = new Invoice("elsayed", "from egypt", 500);
-console.log(invoceOne.client);
-const invoces = [];
-invoces.push(invoceOne);
-invoces.push(invoceTwo);
-invoces.forEach((ele) => {
-    console.log(ele.format());
+import { Payment } from "./classes/payment.js";
+const form = document.querySelector(".new-item-form");
+// inputs
+const type = document.querySelector("#type");
+const tofrom = document.querySelector("#tofrom");
+const details = document.querySelector("#details");
+const amount = document.querySelector("#amount");
+form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    let doc;
+    if (type.value == "invoice")
+        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+    else
+        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    console.log(doc);
 });
