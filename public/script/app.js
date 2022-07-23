@@ -12,26 +12,16 @@ const ul = document.querySelector("ul");
 const list = new ListTemplate(ul);
 form.addEventListener("submit", (e) => {
     e.preventDefault();
+    let values;
+    values = [tofrom.value, details.value, amount.valueAsNumber];
     let doc;
     if (type.value == "invoice")
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Invoice(...values);
     else
-        doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+        doc = new Payment(...values);
     list.render(doc, type.value, "start");
 });
-// enums
-var ResourceType;
-(function (ResourceType) {
-    ResourceType[ResourceType["BOOk"] = 20] = "BOOk";
-    ResourceType[ResourceType["AUTHOR"] = 21] = "AUTHOR";
-    ResourceType[ResourceType["FILM"] = 22] = "FILM";
-})(ResourceType || (ResourceType = {}));
-const myObj = {
-    BOOK: 1,
-};
-const docOne = {
-    uid: 10,
-    resourceType: ResourceType.FILM,
-    data: "mohamed"
-};
-console.log(docOne);
+// tuples
+let arr = ["mohamed", 21, true];
+arr[0] = "mohamed";
+console.log(arr);
