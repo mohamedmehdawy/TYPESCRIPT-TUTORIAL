@@ -18,33 +18,17 @@ const list = new ListTemplate(ul);
 form.addEventListener("submit", (e: Event) => {
     e.preventDefault();
 
+    let values: [string, string, number];
+    values = [tofrom.value, details.value, amount.valueAsNumber];
+
     let doc: HasFormatter;
-    if (type.value == "invoice")
-        doc = new Invoice(tofrom.value, details.value, amount.valueAsNumber);
-    else doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
+    if (type.value == "invoice") doc = new Invoice(...values);
+    else doc = new Payment(...values);
 
     list.render(doc, type.value, "start");
 });
 
-// enums
-enum ResourceType {
-    BOOk = 20,
-    AUTHOR,
-    FILM
-}
-
-const myObj = {
-    BOOK: 1,
-} as const
-interface Resouce<T> {
-    uid: number,
-    resourceType: ResourceType,
-    data: T
-}
-
-const docOne: Resouce<string> = {
-    uid: 10,
-    resourceType: ResourceType.FILM,
-    data: "mohamed"
-}
-console.log(docOne)
+// tuples
+let arr: [string, number, boolean] = ["mohamed", 21, true];
+arr[0] = "mohamed";
+console.log(arr);
