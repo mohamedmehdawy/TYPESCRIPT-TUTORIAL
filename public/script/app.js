@@ -19,21 +19,19 @@ form.addEventListener("submit", (e) => {
         doc = new Payment(tofrom.value, details.value, amount.valueAsNumber);
     list.render(doc, type.value, "start");
 });
-// generic
-function addUID(obj, objTwo) {
-    const uuid = Math.floor(Math.random() * 100);
-    return Object.assign(Object.assign(Object.assign({}, obj), objTwo), { uuid });
-}
-const docOne = addUID({ name: "mohamed", age: 21 }, { game: "valo", sur: 25 });
+// enums
+var ResourceType;
+(function (ResourceType) {
+    ResourceType[ResourceType["BOOk"] = 20] = "BOOk";
+    ResourceType[ResourceType["AUTHOR"] = 21] = "AUTHOR";
+    ResourceType[ResourceType["FILM"] = 22] = "FILM";
+})(ResourceType || (ResourceType = {}));
+const myObj = {
+    BOOK: 1,
+};
+const docOne = {
+    uid: 10,
+    resourceType: ResourceType.FILM,
+    data: "mohamed"
+};
 console.log(docOne);
-const docTwo = {
-    name: "mohamed",
-    age: 20,
-    data: ["game"],
-};
-const docThree = {
-    name: "ahmed",
-    age: 21,
-    data: 2002,
-};
-console.log(docTwo, docThree);
